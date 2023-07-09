@@ -18,4 +18,21 @@ const arr = [10, 20, 30, 40];
 
 console.log(destructureExample(obj, arr));
 
+//Exercise 2:
+
+//Write a function named sumNumbers that takes in multiple numbers 
+//as arguments using the rest operator. The function should return
+//the sum of all the numbers.
+
+function sumNumbers(...values) {
+    // alternative method // return num.reduce((x, num) => x + num, 5); //here initial value is 5 & x is summation variable
+    let sum = 0;
+  values.forEach(value => {
+    sum += value;
+  });
+  return sum;
+}
+
+console.log(sumNumbers(1, 2, 3, 4, 5));
+
 
