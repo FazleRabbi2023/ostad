@@ -96,6 +96,44 @@ function getAddressCity(address) {
 const address = { street: '123 Main St', country: 'USA' };
 console.log(getAddressCity(address))
 
+//Exercise 8: 
+//Write a function named doubleNumbers that takes in an array of numbers and returns a new 
+//array with each number doubled using the array map method.
+  
+function doubleNumbers(numbers) {
+  return numbers.map(num => num * 2);
+}
+
+console.log(doubleNumbers([1, 2, 3, 4, 5]))
+
+//Exercise 9: 
+//Write a function named filterEvenNumbers that takes in an array of numbers and returns
+//a new array with only the even numbers using the array filter method.
+  
+function filterEvenNumbers(numbers) {
+  return numbers.filter(num => num % 2 === 0);
+}
+
+console.log(filterEvenNumbers([1, 2, 3, 4, 5]))
 
 
+//Exercise 10: 
+//Write a function named sumArray that takes in an array of numbers and returns the sum of 
+//all the numbers using the array reduce method.
 
+function sumArray(nums) {
+    return nums.reduce((x, num) => x + num, 0);
+}
+
+console.log(sumArray([1, 2, 3, 4, 5]))
+
+
+//Exercise 11: 
+//Write a function named sortNumbers that takes in an array of numbers and returns a new array
+//with the numbers sorted in ascending order using the array sort method.
+
+function sortNumbers(nums) {
+    return nums.sort((x, y) => x - y)
+}
+
+console.log(sortNumbers([1, 2, 3, 4, 5]))
