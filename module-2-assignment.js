@@ -36,3 +36,66 @@ function sumNumbers(...values) {
 console.log(sumNumbers(1, 2, 3, 4, 5));
 
 
+//Exercise 3:
+//Write a function named createGreeting that takes in a name as a parameter and 
+//returns a greeting message using template literals. The message should be in 
+//the format: "Hello, [name]! Welcome to our website."
+
+function createGreeting(name) {
+  return `Hello, ${name}! Welcome to our website.` 
+  //the advantage of using backtick (`) is, you can avoid (" ") and (+) to combine variable and text alltogether
+}
+
+console.log(createGreeting('Alice'))
+
+
+//Exercise 4: 
+
+//Write a function named isEven that takes in a number as a parameter and returns
+//the string "Even" if the number is even, and "Odd" if the number is odd. Use a 
+//ternary operator instead of an if/else statement.
+
+const isEven = (number) => number%2==0?"Even":"Odd"
+
+console.log(isEven(6))
+
+
+//Exercise 5: 
+//Convert the following function to an arrow function:
+
+//function multiply(a, b) {
+//  return a * b;
+//}
+
+const multiply = (a, b) => a * b 
+
+console.log(multiply(3,4))
+
+//Exercise 6: 
+//Write a function named getLargestNumber that takes in two numbers as
+//parameters. The function should return the larger number using 
+//short-circuiting and logical operators (&&, ||, ??).
+
+function getLargestNumber(a, b) {
+  return a > b ? a : b;
+}
+
+console.log(getLargestNumber(10, 5))
+
+
+///Exercise 7: 
+//Write a function named getAddressCity that takes in an object representing a 
+//person's address. The address object has properties 'street', 'city', and 'country'. 
+//The function should return the value of the 'city' property if it exists, or the string 
+//"Unknown" if it doesn't exist, using optional chaining.
+  
+function getAddressCity(address) {
+  return address?.city ?? "Unknown";
+}
+
+const address = { street: '123 Main St', country: 'USA' };
+console.log(getAddressCity(address))
+
+
+
+
