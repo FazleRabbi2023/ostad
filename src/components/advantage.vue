@@ -1,3 +1,6 @@
+<script setup>
+import adv from '../data/data'
+</script>
 <template>
     <div class="card container px-4 py-5 shadow-lg my-5" id="hanging-icons">
     <header>
@@ -9,19 +12,20 @@
     </div>
   </header>
     <div class="row py-4 pe-lg-0 pt-lg-5 align-items-center">
-      <div class="col d-flex align-items-start">
+
+      <div v-for="a in adv" class="col d-flex align-items-start">
         <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
         </div>
         <div>
-          <h2>Grow your buisiness</h2>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+          <h2>{{a.title}}</h2>
+          <p>{{a.detail}}</p>
           <a href="#" class="btn btn-primary">
             know More
           </a>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
+      <!-- <div class="col d-flex align-items-start">
         <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"/></svg>
         </div>
@@ -56,7 +60,7 @@
             know More
           </a>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
