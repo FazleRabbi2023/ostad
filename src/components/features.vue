@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-lg-6 offset-lg-1 p-0 shadow-lg">
-                <a href="https://www.youtube.com/watch?v=mwtbEGNABWU&t=9s"><img class="rounded-lg-3"
+                <a href="https://www.youtube.com/watch?v=mwtbEGNABWU&t=9s"><img class="img-fluid rounded-lg-3"
                         src="https://preview.colorlib.com/theme/launch/images/dashboard.jpg" alt=""
                         width="720"></a>
             </div>

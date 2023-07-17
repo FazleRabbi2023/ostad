@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-lg-5 offset-lg-1 p-0 shadow-lg">
-            <img class="rounded-lg-3" src="https://preview.colorlib.com/theme/launch/images/market-launch-pana.svg" alt="" width="720">
+            <img class="img-fluid rounded-lg-3" src="https://preview.colorlib.com/theme/launch/images/market-launch-pana.svg" alt="" width="720">
         </div>
         </div>
   </div>

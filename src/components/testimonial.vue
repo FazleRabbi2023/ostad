@@ -57,7 +57,7 @@
                                                     </blockquote>
                                                     <div class="author d-flex">
                                                         <div class="pic mr-3">
-                                                            <img src="ihttps://preview.colorlib.com/theme/launch/images/person_2.jpg"
+                                                            <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
                                                                 alt="Image" class="img-fluid">
                                                         </div>
                                                         <div>
@@ -81,7 +81,7 @@
                                                     </blockquote>
                                                     <div class="author d-flex">
                                                         <div class="pic mr-3">
-                                                            <img src="https://preview.colorlib.com/theme/launch/images/person_2.jpg"
+                                                            <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
                                                                 alt="Image" class="img-fluid">
                                                         </div>
                                                         <div>
@@ -105,7 +105,7 @@
                                                     </blockquote>
                                                     <div class="author d-flex">
                                                         <div class="pic mr-3">
-                                                            <img src="https://preview.colorlib.com/theme/launch/images/person_2.jpg"
+                                                            <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
                                                                 alt="Image" class="img-fluid">
                                                         </div>
                                                         <div>
@@ -129,7 +129,7 @@
                                                     </blockquote>
                                                     <div class="author d-flex">
                                                         <div class="pic mr-3">
-                                                            <img src="https://preview.colorlib.com/theme/launch/images/person_2.jpg"
+                                                            <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
                                                                 alt="Image" class="img-fluid">
                                                         </div>
                                                         <div>
@@ -153,7 +153,7 @@
                                                     </blockquote>
                                                     <div class="author d-flex">
                                                         <div class="pic mr-3">
-                                                            <img src="https://preview.colorlib.com/theme/launch/images/person_2.jpg"
+                                                            <img src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVyc29ufGVufDB8fDB8fHww&w=1000&q=80"
                                                                 alt="Image" class="img-fluid">
                                                         </div>
                                                         <div>
