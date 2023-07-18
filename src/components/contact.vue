@@ -1,3 +1,7 @@
+<script setup>
+import { contact } from '../data/data'
+</script>
+
 <template>
     <!--Section: Contact v.2-->
     <div  class="card container px-4 py-5 shadow-lg my-5" id="cnt">
@@ -5,9 +9,8 @@
     
 
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1  class="display-4 fw-normal">Contact Us</h1>
-      <p class="fs-5 text-muted">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
-        a matter of hours to help you.</p></div>
+      <h1  class="display-4 fw-normal">{{contact.title}}</h1>
+      <p class="fs-5 text-muted">{{contact.detail}}</p></div>
     </header>
     <!--Section description-->
 
@@ -15,7 +18,7 @@
 
         <!--Grid column-->
         <div class="card col-md-9 mb-md-0 mb-5 shadow-lg p-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+            <form id="contact-form" name="contact-form" :action="contact.formAction" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -77,18 +80,10 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class=" card col-md-3 text-center shadow-lg py-5">
-            <ul class="list-unstyled mb-0">
-                <li><i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>San Francisco, CA 94126, USA</p>
-                </li>
-
-                <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>+ 01 234 567 89</p>
-                </li>
-
-                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>contact@mdbootstrap.com</p>
+        <div class=" card col-md-3 text-start shadow-lg py-5" >
+            <ul class="mb-0">
+                <li v-for="(value,index) in contact.address" :key="key"><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>{{index}}:{{ value }}</p>
                 </li>
             </ul>
         </div>

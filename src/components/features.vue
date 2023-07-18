@@ -1,19 +1,21 @@
+<script setup>
+import { features } from '../data/data'
+</script>
+
 <template>
     <div id="feat" class="container my-5">
         <div class="dots"></div>
         <div class="row py-4 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
             <div class="col-lg-4 p-3 p-lg-5 pt-lg-3">
-                <h1 class="display-4 fw-bold lh-1">Features</h1>
-                <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s
-                    most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid
-                    system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                <h1 class="display-4 fw-bold lh-1">{{features.title}}</h1>
+                <p class="lead" v-html="features.detail"></p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
 
                 </div>
             </div>
-            <div class="col-lg-6 offset-lg-1 p-0 shadow-lg">
+            <div class="col-lg-6 offset-lg-1 mb-5 shadow-lg">
                 <a href="https://www.youtube.com/watch?v=mwtbEGNABWU&t=9s"><img class="img-fluid rounded-lg-3"
-                        src="https://preview.colorlib.com/theme/launch/images/dashboard.jpg" alt=""
+                        :src="features.imageLink" alt=""
                         width="720"></a>
             </div>
 
