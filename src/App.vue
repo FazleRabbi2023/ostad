@@ -5,10 +5,6 @@
         computed
 } from 'vue'
 
-// import axios from 'axios';
-
-// import credentials from './credentials/credentials'
-
 const activeClass = ref('login');
 let pass1 = ref('');
 let pass2 = ref('');
@@ -91,9 +87,7 @@ function checkLogin(p, u) {
                             </a>
                         </div>
                     </form>
-                    <!-- <p class="text-center text-gray-500 text-xs">
-                        &copy;2020 Acme Corp. All rights reserved.
-                    </p> -->
+                   
                 </div>
             
             
