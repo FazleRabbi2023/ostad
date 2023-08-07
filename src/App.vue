@@ -18,7 +18,7 @@ async function checkRegistration(p1, p2, u, f) {
       activeClass.value = 'emptypass';
     } else if (u == '') {
       activeClass.value = 'emptyusername';
-    } else if (credentials.find(c => c.username === u)) {
+    } else if (JSON.parse(localStorage.getItem('users')).find(c => c.username === u)) {
       activeClass.value = 'notUnique';
     } else {
         let users = JSON.parse(localStorage.getItem('users'));
