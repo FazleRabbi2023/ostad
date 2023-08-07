@@ -9,7 +9,6 @@ const activeClass = ref('login');
 let pass1 = ref('');
 let pass2 = ref('');
 const credentials = reactive([]);
-let fullname = '';
 
 async function checkRegistration(p1, p2, u, f) {
 
@@ -21,43 +20,27 @@ async function checkRegistration(p1, p2, u, f) {
     } else if (credentials.find(c => c.username === u)) {
       activeClass.value = 'notUnique';
     } else {
-        let users = JSON.parse(localStorage.getItem('users'));
-        users.push({ username: u, password: p1, fullname: f });
-
-    //using local Storage
-    localStorage.setItem('users', JSON.stringify(users));
+      credentials.push({ username: u, password: p1, fullname: f });
       activeClass.value = 'logout';
     }
   } else {
     activeClass.value='missmatch'
   }
-  console.log(credentials);  
+  console.log(credentials);
+  
 }
 
 function checkLogin(p, u) {
-
-// Retrieve the serialized data from localStorage
-    let users = JSON.parse(localStorage.getItem('users'));
-    if (null === users) {
-        activeClass.value = 'notMatched';
-    } else {
-        const checkUser = users.find(user => user.username === u);
-        const checkPass = users.find(user => user.password === p);
-
-        if (checkUser && checkPass) {
-            activeClass.value = 'logout';
-            const user = ref(checkUser.username);
-            fullname = ref(checkUser.fullname);
-
-            console.log(fullname.value);
-        // if (users && users.password == p) {
-        //     activeClass.value = 'logout';
-        //     let user = ref(users.username);
-        //     let fullname = ref(users.fullname);
-        } else {
-            activeClass.value = 'notMatched';
-        }
-    }
+  
+  const checkUser = credentials.find(user => user.username === u);
+  const checkPass = credentials.find(user => user.password === p);
+  if (checkUser && checkPass) {
+    activeClass.value = 'logout';
+      let user = ref(checkUser.username);
+      let fullname = ref(checkUser.fullname);
+  } else {
+    activeClass.value = 'notMatched';
+  }
 }
 
 
