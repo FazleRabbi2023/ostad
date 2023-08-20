@@ -117,7 +117,7 @@
 
         </div>
         </section><!-- End Details Section -->
-
+<!-- this is a comment -->
         <!-- ======= Gallery Section ======= -->
         <section id="gallery" class="gallery">
             <div class="container" data-aos="fade-up">
@@ -148,7 +148,7 @@
             </div>
         </section><!-- End Gallery Section -->
 
-        
+
         <!-- ======= Testimonials Section ======= -->
         <section id="testimonials" class="testimonials section-bg">
             <div class="container" data-aos="fade-up">
