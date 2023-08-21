@@ -13,12 +13,21 @@ let fullname = '';
 
 async function checkRegistration(p1, p2, u, f) {
 
+    
   if (p1 == p2) {
     if (p1 == '' && p2 == '') {
       activeClass.value = 'emptypass';
     } else if (u == '') {
       activeClass.value = 'emptyusername';
-    } else if (JSON.parse(localStorage.getItem('users')).find(c => c.username === u)) {
+    } else if (null == JSON.parse(localStorage.getItem('users'))) {
+        const users = [
+        { username: u, password: p1 }
+        ];
+
+        // Serialize the array to JSON and store it in localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+      activeClass.value = 'logout';
+    } else if(JSON.parse(localStorage.getItem('users')).find(c => c.username === u)) {
       activeClass.value = 'notUnique';
     } else {
         let users = JSON.parse(localStorage.getItem('users'));
