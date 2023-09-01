@@ -5,21 +5,20 @@ import axios from 'axios'
 let List = ref();
 let isSpin = ref(true)
 
-async function BlogList() {
-    let res = await axios.get('https://basic-blog.teamrabbil.com/api/post-list/2');
+async function LatestPosts() {
+    let res = await axios.get('https://basic-blog.teamrabbil.com/api/post-newest');
     List.value = res.data;
     isSpin.value = false;
-
 }
 
-BlogList();
+LatestPosts();
 </script>
 
 <template>
   <div class="container-fluid">
     <div class="row">
         <div class="col-12 p-4">
-            <h1>List of the Recent Blogs</h1>
+            <h1>List of the Latest Posts</h1>
         </div>
     </div>
 
@@ -56,22 +55,11 @@ BlogList();
                 <h5 class="card-title">{{ blog.title }}</h5>
                 <p class="card-text">{{ blog.short }}</p>
                 <!-- <RouterLink class="btn btn-info btn-sm" :to="{ name: 'blog', params: { id: blog.id }, props: { title:blog.title } }">Detail</RouterLink> -->
-                <RouterLink class="btn btn-info btn-sm" :to="{ name: 'blog', params: { blog:blog }, query: { data: JSON.stringify(blog) } }">Detail</RouterLink>
+                <RouterLink class="btn btn-info btn-sm" :to="{ name: 'blog', params: { id: blog.id }, query: { data: JSON.stringify(blog) } }">Detail</RouterLink>
             </div>
             </div>
         </div>
     </div>
-    <!-- <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div v-for="(blog,index) in List" :key="blog.id" class="col-4 pt-4">
-            <div class="card">
-                <img :src="blog.img?blog.img:'https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{blog.title}}</h5>
-                    <p class="card-text">{{blog.short}}</p>
-                    <RouterLink class="btn btn-info btn-sm" :to="{ name: 'blog', params: { id: blog.id }, props: { title:blog.title } }">Detail</RouterLink>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    
   </div>
 </template>
