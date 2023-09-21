@@ -28,14 +28,7 @@
                             <a class="nav-link" href="#">Pricing</a>
                         </li>
 
-                        <!-- <li class="nav-item">
-                            <RouterLink class="nav-link active" to="/">home</RouterLink>
-                        </li>
-
-                        <li class="nav-item">
-                            <RouterLink class="nav-link active" :to="{name:'UserProfile',params: { username:'username' }}">User Profile</RouterLink>
-                        </li> -->
-
+                  
                     </ul>
                 </div>
             </div>
