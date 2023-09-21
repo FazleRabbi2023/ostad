@@ -28,7 +28,7 @@ onBeforeMount(async () => {
         </div>
         <div class="row mt-3" v-if="isSpin == false">
             <div class="col-12 col-md-6 col-lg-4" v-for="product in products" :key="product.id">
-                <div class="card mb-4 p-3 bg-info shadow-lg-4" style="max-width: 540px; height:325px !important">
+                <div class="card mb-4 p-3 bg-info shadow-lg-4 fixed-card-lg" style="max-width: 540px; ">
                     <div class="row g-0">
                         
                             <div class="col-md-4">
@@ -61,4 +61,12 @@ onBeforeMount(async () => {
   bottom: 10px;
   
 }
+
+
+
+  @media (min-width: 576px) { 
+    .fixed-card-lg {
+    height: 300px !important; /* Set the desired height */
+  }
+   }
 </style>
