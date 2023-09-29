@@ -67,8 +67,43 @@ const authStore = defineStore('authenticate', () => {
         router.push('/login');
     }
 
+    const update = (p1, p2, e, n) => {
+        
+        const credentials = reactive([]);
+        console.log(localStorage.getItem('users'))
 
-    return {errorRegiMsg,LoginErrMsg,isAuthenticated,logout,login,user}
+        if (p1 == p2) {
+            if (p1 == '' && p2 == '')
+            {
+            
+            toast.error(auth.errorRegiMsg.emptypass);
+            }
+        
+            else
+            {
+                let users = JSON.parse(localStorage.getItem('users'));
+                let index = JSON.parse(localStorage.getItem('users')).findIndex(item => item.email === e);
+
+                users[index] = { email: e, password: p1, name: n }
+                localStorage.setItem('users', JSON.stringify(users));
+
+                localStorage.setItem('loggedUser', JSON.stringify({ email: e, password: p1, name: n }));
+                authStore().user = JSON.parse(localStorage.getItem('loggedUser'));
+
+                router.push('/dashboard')
+
+                toast.success('Profile Updated !!');
+            }
+        }
+        else {
+            
+            toast.error(auth.errorRegiMsg.missmatch);
+        }
+        console.log(credentials);
+    }
+
+
+    return {errorRegiMsg,LoginErrMsg,isAuthenticated,logout,login,user,update}
 })
 
 

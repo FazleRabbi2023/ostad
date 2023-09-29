@@ -8,52 +8,11 @@ import { useToast } from "vue-toastification";
 
 const toast = useToast();
 
-
 const auth = authStore();
-const email = ref()
-
 
 const errorMsg = ref();
 let pass1 = ref('');
 let pass2 = ref('');
-const credentials = reactive([]);
-let name = '';
-
-
-async function checkRegistration(p1, p2, e, n) {
-
-console.log(localStorage.getItem('users'))
-
-  
-  if (p1 == p2) {
-    if (p1 == '' && p2 == '')
-    {
-      
-      toast.error(auth.errorRegiMsg.emptypass);
-    }
-   
-    else
-    {
-        let users = JSON.parse(localStorage.getItem('users'));
-        let index = JSON.parse(localStorage.getItem('users')).findIndex(item => item.email === e);
-
-        users[index] = { email: e, password: p1, name: n }
-        localStorage.setItem('users', JSON.stringify(users));
-
-        localStorage.setItem('loggedUser', JSON.stringify({ email: e, password: p1, name: n }));
-        authStore().user = JSON.parse(localStorage.getItem('loggedUser'));
-
-        router.push('/dashboard')
-
-        toast.success('Profile Updated !!');
-    }
-  }
-  else {
-    
-    toast.error(auth.errorRegiMsg.missmatch);
-  }
-  console.log(credentials);  
-}
 
 
 </script>
@@ -67,7 +26,7 @@ console.log(localStorage.getItem('users'))
           <h5 v-if="errorMsg" class="p-4 text-danger bg-warning">{{errorMsg}}</h5>
           <div class="card-body p-4">
         
-        <form @submit.prevent="checkRegistration(pass1,pass2,auth.user.email,auth.user.name)">
+        <form @submit.prevent="auth.update(pass1,pass2,auth.user.email,auth.user.name)">
             
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
