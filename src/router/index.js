@@ -2,20 +2,26 @@ import { createRouter, createWebHistory } from 'vue-router'
 import TheWelcome from '../components/TheWelcome.vue'
 import Dashboard from '../views/Dashboard.vue'
 import { authStore } from '../stores/authStore'
+import { useToast } from "vue-toastification";
 
+const toast = useToast();
 
 const routes= [
     {
       path: '/',
       name: 'home',
-      component: TheWelcome
+      component: TheWelcome,
+      meta: {
+        title:'Home'
+      }
     },
     {
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
       meta:{
-            requiresAuth: true
+        requiresAuth: true,
+        title: 'Dashboard'
       }
     },
     {
@@ -24,7 +30,7 @@ const routes= [
       component: () => import('../components/tasks.vue'),
       meta:{
         requiresAuth: true,
-        
+        title: 'To Do'
       }
   },
      {
@@ -33,7 +39,7 @@ const routes= [
       component: () => import('../components/Profile.vue'),
       meta:{
         requiresAuth: true,
-        
+        title: 'profile'
       }
     },
     {
@@ -47,7 +53,10 @@ const routes= [
     {
       path: '/register',
       name: 'register',
-      component:()=>import('../components/Registration.vue')
+      component: () => import('../components/Registration.vue'),
+      meta: {
+        title:'Register'
+      }
     },
     {
       path: '/login',
@@ -70,7 +79,8 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const auth = authStore()
     if(to.meta.requiresAuth && auth.isAuthenticated=='false'){
-        next('/login')
+      next('/login')
+      toast.info('You have to login to view the page !!')
     } else {
         document.title = to.meta.title || "Default Title";
         next()
