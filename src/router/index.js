@@ -23,7 +23,17 @@ const routes= [
       name: 'todo',
       component: () => import('../components/tasks.vue'),
       meta:{
-            requiresAuth: true
+        requiresAuth: true,
+        
+      }
+  },
+     {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../components/Profile.vue'),
+      meta:{
+        requiresAuth: true,
+        
       }
     },
     {
@@ -42,7 +52,10 @@ const routes= [
     {
       path: '/login',
       name: 'login',
-      component:()=>import('../components/Login.vue')
+      component: () => import('../components/Login.vue'),
+      meta: {
+        title:'Log in'
+      }
     },
   ]
 const router = createRouter({
@@ -58,7 +71,8 @@ router.beforeEach((to, from, next) => {
     const auth = authStore()
     if(to.meta.requiresAuth && auth.isAuthenticated=='false'){
         next('/login')
-    }else{
+    } else {
+        document.title = to.meta.title || "Default Title";
         next()
     }
 })

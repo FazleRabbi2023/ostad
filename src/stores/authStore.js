@@ -1,14 +1,17 @@
 import { ref, reactive } from 'vue'
 import { defineStore } from 'pinia'
 import router from '../router';
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const authStore = defineStore('authenticate', () => {
 
-    let user = reactive({})
+    const user = ref(JSON.parse(localStorage.getItem('loggedUser')));
     const errorRegiMsg = reactive({
         emptypass: 'passwords cannot be empty !!',
         emptyusername: 'username cannot be empty !!',
-        notUnique: 'username has already been taken !!',
+        notUnique: 'Email has already been taken !!',
         missmatch:'password does not match !!'
     })
 
@@ -20,29 +23,14 @@ const authStore = defineStore('authenticate', () => {
 
     const isAuthenticated = ref(localStorage.getItem('token'));
 
-    // const isAuthenticated = () => {
-    //     if (null == localStorage.getItem('token')) {
-    //         localStorage.setItem('token',true)
-    //     }
-    //     return localStorage.getItem('token')=='true'
-    // }
-
-    // const isNotAuthenticated = () => {
-    //     if (null == localStorage.getItem('token')) {
-    //         localStorage.setItem('token',false)
-    //     }
-    //     return localStorage.getItem('token')=='false'
-    // }
-
-    
-
     const login = (pass,email) => {
 
     // Retrieve the serialized data from localStorage
         let users = JSON.parse(localStorage.getItem('users'));
         
         if (null === users) {
-            activeClass.value = 'notMatched';
+            //LoginErrMsg.state = true;
+            toast.error("Credentials not Matched!");
         }
         else {
             const checkUser = users.find(user => user.email === email);
@@ -51,15 +39,21 @@ const authStore = defineStore('authenticate', () => {
             if (checkUser && checkPass)
             {
                 
-                user = checkUser;
+                //
                 localStorage.setItem('token', true);
                 isAuthenticated.value = localStorage.getItem('token');
+                LoginErrMsg.state = false;
+                localStorage.setItem('loggedUser', JSON.stringify(checkUser));
+                user.value = JSON.parse(localStorage.getItem('loggedUser'));
+                console.log(user);
                 router.push('/dashboard');
-                
+
+                toast.success('Login Successfull !!');
             }
             else
             {
-                LoginErrMsg.state = true;
+                //LoginErrMsg.state = true;
+                toast.error("Credentials not Matched!");
             }
         }
 
@@ -67,12 +61,14 @@ const authStore = defineStore('authenticate', () => {
 
     const logout = () => {
         localStorage.setItem('token', false);
+        localStorage.setItem('loggedUser', false);
+        user.value = null;
         isAuthenticated.value = localStorage.getItem('token');
         router.push('/login');
     }
 
 
-    return {errorRegiMsg,LoginErrMsg,isAuthenticated,logout,login}
+    return {errorRegiMsg,LoginErrMsg,isAuthenticated,logout,login,user}
 })
 
 

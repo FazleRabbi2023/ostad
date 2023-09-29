@@ -8,7 +8,15 @@ const taskStore = defineStore('tasks', () => {
     let tasks= reactive([])
    
     const addTask = (task) => {
-        tasks.push(task);
+        if (null == task  ||  task == '')
+        {
+            alert('Task Name cannot be empty !!')
+        } else {
+            tasks.push({
+            name: task,    
+            });
+        }
+        
         console.log(tasks)
     }
     const totalTasks =() => {
@@ -17,9 +25,15 @@ const taskStore = defineStore('tasks', () => {
 
     const removeTask = (i) => {
         tasks.splice(i, 1);
+        taskStatus.splice(i, 1);
+
     }
 
-    const taskStatus = ref(false);
+    // const toggle = (i) => {
+    //     tasks[i].status = 
+    // }
+
+    const taskStatus = reactive([]);
     
     return {tasks, addTask, totalTasks, removeTask, taskStatus}
 })
