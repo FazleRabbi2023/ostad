@@ -76,7 +76,7 @@ const authStore = defineStore('authenticate', () => {
             if (p1 == '' && p2 == '')
             {
             
-            toast.error(auth.errorRegiMsg.emptypass);
+            toast.error(errorRegiMsg.emptypass);
             }
         
             else
@@ -97,7 +97,7 @@ const authStore = defineStore('authenticate', () => {
         }
         else {
             
-            toast.error(auth.errorRegiMsg.missmatch);
+            toast.error(errorRegiMsg.missmatch);
         }
         console.log(credentials);
     }
