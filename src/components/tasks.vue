@@ -30,7 +30,7 @@ function addTask() {
                 <div class="col-md-5">
                     <div class="card mt-3">
                         <div class="card-header bg-success text-white">
-                            Add Task {{ name }}
+                            Add Task
                         </div>
                         <div class="card-body p-4">
                             <form @submit.prevent="addTask()"
