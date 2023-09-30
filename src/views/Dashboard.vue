@@ -1,4 +1,17 @@
 <script setup>
+import { ref, reactive, onBeforeMount } from 'vue'
+
+//import {authStore} from '../stores/authStore'
+
+// const auth = authStore();
+
+import {taskStore} from '../stores/taskStore';
+let user = reactive({});
+onBeforeMount(() => {
+    user = JSON.parse(localStorage.getItem('loggedUser'));
+    console.log(user.email);
+
+})
 
 
 </script>
@@ -11,7 +24,10 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         
-                        <h1>This is dashboard</h1>
+                        <h1>This is the dashboard of {{ user.name }} </h1>
+                        <h2>Email Address: {{ user.email }}</h2>
+
+                        <!-- <h3><a @click="auth.logout" class="btn btn-danger"  type="submit" to="/login">Log Out</a></h3> -->
                         
                     </div>
                 </div>

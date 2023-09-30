@@ -66,7 +66,6 @@ function addTask() {
                                     <td>Task Name</td>
                                     <td>Status</td>
                                     <td>Action</td>
-
                                 </tr>
                                 <tr v-for="(task,index) in tasksStore.tasks" :key="index">
                                     <td>{{ index + 1 }}</td>
