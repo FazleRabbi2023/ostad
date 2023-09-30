@@ -1,6 +1,6 @@
 <script setup>
     import {
-        ref,
+        ref,reactive,
         computed
     } from 'vue';
     import {
@@ -11,9 +11,16 @@
     const tasksStore = taskStore(); // Create an instance of your store
 
 
-    const name = ref()
+const name = ref('')
 
-    const status = ref(false)
+const status = ref(false)
+
+function addTask() {
+  tasksStore.addTask(name.value);
+
+  name.value = '';
+  
+}
 </script>
 
 <template>
@@ -23,10 +30,10 @@
                 <div class="col-md-5">
                     <div class="card mt-3">
                         <div class="card-header bg-success text-white">
-                            Add Task
+                            Add Task {{ name }}
                         </div>
                         <div class="card-body p-4">
-                            <form @submit.prevent="tasksStore.addTask(name)"
+                            <form @submit.prevent="addTask()"
                                 class="row row-cols-lg-auto align-items-center d-flex justify-content-center">
 
                                 <div class="col-8">
