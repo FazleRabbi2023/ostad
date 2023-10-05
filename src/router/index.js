@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TheWelcome from '../components/TheWelcome.vue'
-import Dashboard from '../views/Dashboard.vue'
+
 import { authStore } from '../stores/authStore'
 import { useToast } from "vue-toastification";
 
@@ -18,7 +18,7 @@ const routes= [
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import('../components/Dashboard.vue'),
+      component: () => import('@/views/Dashboard.vue'),
       meta:{
         requiresAuth: true,
         title: 'Dashboard'
@@ -65,7 +65,15 @@ const routes= [
       meta: {
         title:'Log in'
       }
-    },
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import('@/views/Products.vue'),
+    meta: {
+      title:'products'
+    }
+    }
   ]
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

@@ -18,7 +18,7 @@ onBeforeMount(() => {
 
 <template>
  
-  <Navbar/>
+  <!-- <Navbar/> -->
   <RouterView />
 </template>
 
