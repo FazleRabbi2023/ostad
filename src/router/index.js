@@ -70,10 +70,29 @@ const routes= [
     path: '/products',
     name: 'products',
     component: () => import('@/views/Products.vue'),
+    
     meta: {
       title:'products'
     }
+  },
+  {
+    path: '/product/:id',
+    name: 'products-show',
+    component: () => import('@/views/Product.vue'),
+    
+    meta: {
+      title:'product'
     }
+  },
+  {
+    path: '/product/add',
+    name: 'product-add',
+    component: () => import('@/views/ProductAddForm.vue'),
+    
+    meta: {
+      title:'product'
+    }
+  },
   ]
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

@@ -77,7 +77,9 @@ onBeforeMount(() => {
 }
 
 .drop{
+    position:absolute;
     margin-right: 200px !important;
+    z-index: 1;
 }
 
 </style>
