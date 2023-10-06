@@ -13,7 +13,8 @@ const routes= [
       component: TheWelcome,
       meta: {
         title:'Home'
-      }
+    },
+      redirect:'/products'
     },
     {
       path: '/dashboard',
