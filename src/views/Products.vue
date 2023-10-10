@@ -19,14 +19,27 @@ const isSpin = ref(true);
 let products = reactive({})
 
 onBeforeMount(async ()=> {
-    let res = await axios.get('https://dummyjson.com/products');
+    let res = await axios.get('https://fakestoreapi.com/products');
     products = res.data.products;
     isSpin.value = false;
     console.log(products);
 
 })
 
+const searchField = ["player","team","country","lastAttended"];
+const searchValue = ref();
 
+
+const Header = [
+  { text: "Title", value: "title" },
+  { text: "TEAM", value: "team"},
+  { text: "POSITION", value: "position"},
+  { text: "HEIGHT", value: "indicator.height"},
+  { text: "WEIGHT (lbs)", value: "indicator.weight", sortable: true},
+  { text: "LAST ATTENDED", value: "lastAttended", width: 200},
+  { text: "COUNTRY", value: "country"},
+  { text: "NUMBER", value: "number"},
+];
 
 </script>
 <template>
@@ -64,7 +77,14 @@ onBeforeMount(async ()=> {
                 </tr>
             </tbody>
         </table>
-        
+        <!-- <div>
+                <input placeholder="Search..." class="form-control mb-2 w-auto form-control-sm" type="text" v-model="searchValue">
+                <EasyDataTable buttons-pagination alternating :headers="Header" :items="Item" :rows-per-page="10" :search-field="searchField"  :search-value="searchValue">
+                  <template #item-number="{ number,player }">
+                    <button class="btn btn-success btn-sm" @click="itemClick(number,player)">Delete</button>
+                  </template>
+                </EasyDataTable>
+        </div> -->
     </div>
 </div>
 </Layout>

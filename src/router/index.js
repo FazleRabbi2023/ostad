@@ -94,6 +94,11 @@ const routes= [
       title:'product'
     }
   },
+  {
+    path: '/toast',
+    name: 'toast',
+    component:()=>import('@/components/toastMsg.vue')
+  }
   ]
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
