@@ -20,7 +20,7 @@ let products = reactive({})
 
 onBeforeMount(async ()=> {
     let res = await axios.get('https://fakestoreapi.com/products');
-    products = res.data.products;
+    products = res.data;
     isSpin.value = false;
     console.log(products);
 
@@ -70,9 +70,9 @@ const Header = [
                 <tr v-for="(product,index) in products" :key="index">
                     <td>{{ index+1 }}</td>
                     <td>{{product.title}}</td>
-                    <td><img :src="product.thumbnail" style="width:100px;height:100px"></td>
+                    <td><img :src="product.image" style="width:100px;height:100px"></td>
                     <td>{{product.price}}</td>
-                    <td>{{ product.stock }}</td>
+                    <td>{{ product.category }}</td>
                     <td><RouterLink class="btn btn-sm btn-info" :to="`/product/${product.id}`">View Detail</RouterLink></td>
                 </tr>
             </tbody>
