@@ -87,6 +87,7 @@ console.log(localStorage.getItem('users'))
 
 
 <template>
+  <web-layout>
     <div class="container-fluid p-4">
       <div class="d-flex justify-content-center">
         <div class="card"  style="width: 20rem;">
@@ -120,7 +121,7 @@ console.log(localStorage.getItem('users'))
       </div>
 
     </div>
-
+</web-layout>
 
 </template>
 <style scoped>

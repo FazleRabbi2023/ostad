@@ -1,4 +1,5 @@
 <script setup>
+
 import { ref, reactive, onBeforeMount } from 'vue'
 
 import {authStore} from '../stores/authStore'
@@ -17,7 +18,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-
+<admin-layout>
     <div class="container-fluid">
         <div class="container">
             <div class="row g-3">
@@ -34,19 +35,19 @@ onBeforeMount(() => {
             </div>
         </div>
     </div>
-
+</admin-layout>
 </template>
 
 <style scoped>
 
 .container-fluid{
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     background-image: url('https://getwallpapers.com/wallpaper/full/6/1/8/8539.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 5%;
-   
+    padding-top: 0%;
+    
     height: 100vh;
 }
 

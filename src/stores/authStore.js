@@ -67,30 +67,47 @@ const authStore = defineStore('authenticate', () => {
         router.push('/login');
     }
 
-    const update = (p1, p2, e, n) => {
+    const update = (p1, p2, e, n, bDate, image, about) => {
         
         const credentials = reactive([]);
-        console.log(localStorage.getItem('users'))
-
+        //console.log(localStorage.getItem('users'));
+        //let index = JSON.parse(localStorage.getItem('users')).findIndex(item => item.email === user.value.email);
+        let newarray = JSON.parse(localStorage.getItem('users')).filter(x => x.email !== user.value.email);
+        console.log(p1,p2);
         if (p1 == p2) {
             if (p1 == '' && p2 == '')
             {
             
             toast.error(errorRegiMsg.emptypass);
             }
-        
+            else if (newarray.find(c => c.email === e))
+            {
+                toast.error(errorRegiMsg.notUnique);
+            }
+            else if (e == '')
+                {
+                //errorMsg.value = auth.errorRegiMsg.emptyusername;
+                toast.error(errorRegiMsg.emptyusername);
+                }
             else
             {
                 let users = JSON.parse(localStorage.getItem('users'));
-                let index = JSON.parse(localStorage.getItem('users')).findIndex(item => item.email === e);
+                let index = JSON.parse(localStorage.getItem('users')).findIndex(item => item.email === user.value.email);
 
-                users[index] = { email: e, password: p1, name: n }
+                const currentYear = new Date().getFullYear();
+                const year = new Date(bDate);
+                //return year.getFullYear();
+                const age =  currentYear - year.getFullYear()
+
+                users[index] = { email: e, password: p1, name: n, birthYear: year.getFullYear(), age: age, image:image, about:about }
                 localStorage.setItem('users', JSON.stringify(users));
 
-                localStorage.setItem('loggedUser', JSON.stringify({ email: e, password: p1, name: n }));
+                localStorage.setItem('loggedUser', JSON.stringify(users[index]));
                 authStore().user = JSON.parse(localStorage.getItem('loggedUser'));
 
-                router.push('/dashboard')
+                router.push({ path: '/profile' }, () => {
+                // The component will be refreshed when the navigation is complete
+                }, { forceReload: true });
 
                 toast.success('Profile Updated !!');
             }
@@ -99,7 +116,7 @@ const authStore = defineStore('authenticate', () => {
             
             toast.error(errorRegiMsg.missmatch);
         }
-        console.log(credentials);
+        //console.log(credentials);
     }
 
 

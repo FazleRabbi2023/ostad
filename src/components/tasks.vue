@@ -24,6 +24,7 @@ function addTask() {
 </script>
 
 <template>
+    <web-layout>
     <div class="container-fluid">
         <div class="container">
             <div class="row g-3">
@@ -94,6 +95,7 @@ function addTask() {
             </div>
         </div>
     </div>
+    </web-layout>
 </template>
 
 <style scoped>

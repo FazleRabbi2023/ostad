@@ -28,6 +28,9 @@ onBeforeMount(() => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
+                        <RouterLink class="nav-link" aria-current="page" to="/products">Products</RouterLink>
+                    </li>
+                    <li class="nav-item" v-if="auth.isAuthenticated=='true'">
                         <RouterLink class="nav-link" aria-current="page" to="/dashboard">Dashboard</RouterLink>
                     </li>
                     <li class="nav-item">
@@ -49,10 +52,11 @@ onBeforeMount(() => {
                             </a>
                             <ul class="dropdown-menu drop" >
                                 <li><RouterLink class="dropdown-item" to="/profile">Profile</RouterLink></li>
+                                <li><RouterLink class="dropdown-item" to="/profile">Admin Panel</RouterLink></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li class="bg-warning text-white text-start"><a @click="auth.logout" class="dropdown-item"  type="submit" to="/login">Log Out</a></li>
+                                <li class="bg-warning text-white text-start"><a @click="auth.logout" class="dropdown-item"  type="submit">Log Out</a></li>
                             </ul>
                         </li>
                        </ul>

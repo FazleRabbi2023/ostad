@@ -11,6 +11,7 @@ const auth = authStore();
 </script>
 
 <template>
+<web-layout>
     <div class="container-fluid p-5">
         <div class="d-flex justify-content-center">
         <div class="card">
@@ -33,7 +34,7 @@ const auth = authStore();
         </div>
     </div>
 
-
+</web-layout>
 </template>
 
 <style scoped>

@@ -3,12 +3,13 @@
 </script>
 
 <template>
-
+<web-layout>
   <div class="container-fluid">
     <div class="text-center">
-      <h1 class="text-white">Welcome to Vue Authentication System</h1>
+      <h1 class="text-white">Welcome to Vue Js E-commerce System</h1>
     </div>
   </div>
+</web-layout>
 
 </template>
 

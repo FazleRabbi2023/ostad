@@ -4,12 +4,20 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import Toast from "vue-toastification";
 
+//import global components
+import Layout from '@/views/layouts/admin.vue'
+import webLayout from '@/views/layouts/webLayout.vue'
+import Vue3EasyDataTable from 'vue3-easy-data-table';
+
+////////////////////////////////////////////////
+
 // Import the CSS or use your own!
 import "vue-toastification/dist/index.css";
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
-import Vue3EasyDataTable from 'vue3-easy-data-table';
+
+
 import 'vue3-easy-data-table/dist/style.css';
 import './assets/main.css'
 
@@ -21,7 +29,12 @@ import router from './router'
 
 const app = createApp(App)
 
+//register global components
+app.component('admin-layout', Layout);
+app.component('web-layout', webLayout);
 app.component('EasyDataTable', Vue3EasyDataTable);
+
+/////////////////////////////
 
 app.use(createPinia())
 app.use(router)

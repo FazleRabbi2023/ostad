@@ -1,5 +1,5 @@
 <script setup>
-
+import "@/assets/profile.css"
 import { ref, reactive, onBeforeMount } from 'vue'
 import {authStore} from '../stores/authStore'
 import router from '../router';
@@ -14,14 +14,19 @@ const errorMsg = ref();
 let pass1 = ref('');
 let pass2 = ref('');
 
+const profileEdit = ref(false);
 
 </script>
 
 
 <template>
-    <div class="container-fluid p-4">
+  <admin-layout>
+    <div class="container-fluid">
       <div class="d-flex justify-content-center">
-        <div class="card"  style="width: 20rem;">
+
+
+
+        <div class="card"  style="width: 20rem;" v-if="profileEdit==true">
           <div class="card-header">Profile Edit</div>
           <h5 v-if="errorMsg" class="p-4 text-danger bg-warning">{{errorMsg}}</h5>
           <div class="card-body p-4">
@@ -58,7 +63,7 @@ let pass2 = ref('');
       </div>
 
     </div>
-
+</admin-layout>
 
 </template>
 <style scoped>

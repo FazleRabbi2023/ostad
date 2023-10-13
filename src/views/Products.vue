@@ -1,6 +1,6 @@
 <script setup>
 import {ref,reactive,onBeforeMount,onMounted} from 'vue'
-import Layout from '@/views/layouts/admin.vue'
+
 import axios from 'axios'
 
 // let products = reactive([
@@ -46,7 +46,7 @@ const Header = [
 
 
 
-<Layout>
+<admin-layout>
     <h1 v-if="isSpin">Loading..</h1>
 <div v-else class="container-fluid">
     <div class="row g-3 px-5">
@@ -87,7 +87,7 @@ const Header = [
         </div> -->
     </div>
 </div>
-</Layout>
+</admin-layout>
 
 
 

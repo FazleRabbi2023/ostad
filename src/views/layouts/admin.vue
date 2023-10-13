@@ -4,6 +4,9 @@ import Sidebar from '@/components/SideNav.vue'
 
 import {ref,computed} from 'vue'
 
+import { authStore } from '@/stores/authStore'
+const auth = authStore();
+
 const sideNavStatus = ref(true);
 
 const sideNav = computed(() => sideNavStatus.value ? 'side-nav-open' : 'side-nav-close');
@@ -24,11 +27,16 @@ console.log(sideNavStatus.value);
     </nav>
 
     <div id="sideNav" :class="sideNav">
-      <div class="side-nav-top text-center">
-        <RouterLink to="/" target="_blank"><h5 class="p-4 text-white">Admin Panel</h5></RouterLink>
+      <div class="side-nav-top text-center" v-if="sideNav=='side-nav-open'">
+        <RouterLink to="#"><h5 class="p-4 text-white">Admin Panel</h5></RouterLink>
       </div>
 
-      <router-link to="#" class="side-bar-item">
+      <router-link to="/" class="side-bar-item">
+        <span class="side-bar-item-icon"><i class='bx bx-grid-alt nav_icon'></i></span>
+        <span class="side-bar-item-caption">Home</span>
+      </router-link>
+
+      <router-link to="/dashboard" class="side-bar-item">
         <span class="side-bar-item-icon"><i class='bx bx-grid-alt nav_icon'></i></span>
         <span class="side-bar-item-caption">dashboard</span>
       </router-link>
@@ -66,7 +74,23 @@ console.log(sideNavStatus.value);
         <span class="side-bar-item-icon"><i class="fa text-green fa-circle-notch"/></span>
         <span class="side-bar-item-caption">Circle Progress</span>
       </router-link> -->
+    <hr>
+    <router-link to="/profile" class="side-bar-item">
+        <span class="side-bar-item-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+          <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+        </svg></span>
+        <span class="side-bar-item-caption">Profile</span>
+    </router-link>
 
+    <a v-if="auth.isAuthenticated=='true'" @click="auth.logout" class="side-bar-item"  type="submit">
+      <span class="side-bar-item-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+        <path d="M7.5 1v7h1V1h-1z"/>
+        <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+      </svg>
+      </span>
+      <span class="side-bar-item-caption" >Log Out</span>
+    </a>
 
     </div>
 
@@ -78,11 +102,6 @@ console.log(sideNavStatus.value);
 
 <style scoped>
 
-div.content {
-  margin-top: 50px;
-  
-  padding: 50px 16px;
-  height: 1000px;
-}
+
 
 </style>

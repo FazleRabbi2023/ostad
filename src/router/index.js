@@ -13,13 +13,12 @@ const routes= [
       component: TheWelcome,
       meta: {
         title:'Home'
-    },
-      redirect:'/products'
+      }
     },
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import('@/views/Dashboard.vue'),
+      component: () => import('@/components/Dashboard.vue'),
       meta:{
         requiresAuth: true,
         title: 'Dashboard'
@@ -37,7 +36,7 @@ const routes= [
      {
       path: '/profile',
       name: 'profile',
-      component: () => import('../components/Profile.vue'),
+      component: () => import('../views/Profile.vue'),
       meta:{
         requiresAuth: true,
         title: 'profile'
