@@ -89,9 +89,10 @@ const routes= [
     name: 'product-add',
     component: () => import('@/views/ProductAddForm.vue'),
     
-    meta: {
-      title:'product'
-    }
+    meta:{
+        requiresAuth: true,
+        title: 'add-product'
+      }
   },
   {
     path: '/toast',

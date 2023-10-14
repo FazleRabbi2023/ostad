@@ -17,8 +17,8 @@ const auth = authStore();
         <div class="card">
         <div class="card-header">Login Form</div>
         <!-- <h5 v-if="authStore().LoginErrMsg.state" class="p-2 text-danger bg-warning">{{authStore().LoginErrMsg.msg}}</h5> -->
-        <form @submit.prevent="auth.login(pass,email)" class="mt-3 p-3 border-primary">
-            <div class="mb-3">
+        <form @submit.prevent="auth.login(pass,email)" class="m-2 p-4 border-primary">
+            <div class="mb-2">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input v-model="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
@@ -27,9 +27,11 @@ const auth = authStore();
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input v-model="pass" type="password" class="form-control" id="exampleInputPassword1">
             </div>
-            
-            <button type="submit" class="btn btn-primary">Log In</button>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </div>
         </form>
+        <div class="card-body ms-3 mb-3">Don't have an account? <RouterLink to="/register" class="text-warning">Register</RouterLink></div>
         </div>
         </div>
     </div>

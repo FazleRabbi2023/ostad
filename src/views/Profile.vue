@@ -159,6 +159,7 @@ function updateUser() {
                         <img :src="user.image" class="card-img-top" alt="...">
                         
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-primary mb-2 text-white fs-4">name: {{user.name}}</li>
                             <li class="list-group-item bg-primary mb-2 text-white fs-4">Birth Year: {{x}}</li>
                             <li class="list-group-item text-white fs-5" :class="yClass">{{ y }}</li>
                         </ul>

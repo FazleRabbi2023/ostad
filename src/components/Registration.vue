@@ -35,6 +35,11 @@ console.log(localStorage.getItem('users'))
       //errorMsg.value = auth.errorRegiMsg.emptyusername;
       toast.error(auth.errorRegiMsg.emptyusername);
     }
+    else if (null == u)
+    {
+      //errorMsg.value = auth.errorRegiMsg.emptyusername;
+      toast.error(auth.errorRegiMsg.emptyusername);
+    }
     else if (null == JSON.parse(localStorage.getItem('users')) || '' == JSON.parse(localStorage.getItem('users')))
     {
         const users = [
@@ -116,7 +121,8 @@ console.log(localStorage.getItem('users'))
             
             <button type="submit" class="btn btn-primary">register</button>
         </form>
-        </div>
+      </div>
+      <div class="card-body ms-2 mb-3">Already have an account? <RouterLink to="/login" class="text-warning">Login</RouterLink></div>
         </div>
       </div>
 

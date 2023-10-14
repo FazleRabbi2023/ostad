@@ -32,6 +32,12 @@ const authStore = defineStore('authenticate', () => {
             //LoginErrMsg.state = true;
             toast.error("Credentials not Matched!");
         }
+        else if ('' == email) {
+            toast.error("Email can not be empty!");
+        }
+        else if (null == email) {
+            toast.error("Email can not be empty!");
+        }
         else {
             const checkUser = users.find(user => user.email === email);
             const checkPass = users.find(user => user.password === pass);
