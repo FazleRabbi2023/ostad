@@ -1,4 +1,5 @@
 import { ref, reactive } from 'vue'
+import {cart} from '@/stores/Cart.js'
 import { defineStore } from 'pinia'
 import router from '../router';
 import { useToast } from "vue-toastification";
@@ -70,6 +71,9 @@ const authStore = defineStore('authenticate', () => {
         localStorage.setItem('loggedUser', false);
         user.value = null;
         isAuthenticated.value = localStorage.getItem('token');
+        cart.items = [];
+        cart.grandTotal = 0;
+        cart.saveItems()
         router.push('/login');
     }
 

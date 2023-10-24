@@ -2,6 +2,8 @@
 
 import { ref, reactive, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router';
+import { cart } from '@/stores/Cart.js';
+import { wishlist } from '@/stores/Wishlist.js';
 import Layout from '@/views/layouts/admin.vue'
 import axios from 'axios';
 
@@ -64,8 +66,8 @@ onBeforeMount(async () => {
 						
 						
 						<div class="action">
-							<button class="add-to-cart btn btn-default me-2" type="button">add to cart</button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+							<button @click="cart.addItem(product)" class="add-to-cart btn btn-default me-2" type="button">add to cart</button>
+							<button @click="wishlist.addToList(product)" class="btn" type="button"><span class="fa-3x" :class="wishlist.getIcon(product)"></span></button>
 						</div>
 					</div>
 				</div>
@@ -225,6 +227,10 @@ height:400px ;
 
 .Smallimage {
     height:50px;
+}
+
+.red{
+    color:red;
 }
 
 /*# sourceMappingURL=style.css.map */

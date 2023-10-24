@@ -11,6 +11,18 @@ onBeforeMount(() => {
   if (null == localStorage.getItem('token')) {
     localStorage.setItem('token',false)
   }
+
+  if (null == localStorage.getItem('cart')) {
+    localStorage.setItem('cart',JSON.stringify([]))
+  }
+
+  if (null == localStorage.getItem('orders')) {
+    localStorage.setItem('orders',JSON.stringify([]))
+  }
+
+  if (null == localStorage.getItem('wishlist')) {
+    localStorage.setItem('wishlist',JSON.stringify([]))
+  }
   
 })
 

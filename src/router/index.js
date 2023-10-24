@@ -95,6 +95,42 @@ const routes= [
       }
   },
   {
+    path: '/checkout',
+    name: 'checkout',
+    component: () => import('@/views/Checkout.vue'),
+    meta: {
+      requiresAuth: true,
+      title:'checkout'
+    }
+  },
+  {
+    path: '/orders',
+    name: 'orders',
+    component: () => import('@/views/Orders.vue'),
+    meta: {
+      requiresAuth: true,
+      title:'orders'
+    }
+  },
+  {
+    path: '/orderdetail/:index',
+    name: 'orderdetail',
+    component: () => import('@/views/OrderDetail.vue'),
+    meta: {
+      requiresAuth: true,
+      title:'order-detail'
+    }
+  },
+  {
+    path: '/wishlist',
+    name: 'wishlist',
+    component: () => import('@/views/Wishlist.vue'),
+    meta: {
+      requiresAuth: true,
+      title:'wishlist'
+    }
+  },
+  {
     path: '/toast',
     name: 'toast',
     component:()=>import('@/components/toastMsg.vue')
@@ -117,6 +153,15 @@ router.beforeEach((to, from, next) => {
     } else {
         document.title = to.meta.title || "Default Title";
         next()
+    }
+  
+    if (to.path === '/login' && auth.isAuthenticated=='true') {
+    // Redirect to the login page if the user is not logged in
+      next('/dashboard');
+      toast.warning('You are already logged in !!');
+    } else {
+      // Continue with the navigation as usual
+      next();
     }
 })
 
