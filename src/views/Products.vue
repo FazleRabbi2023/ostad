@@ -44,7 +44,7 @@ const filterProducts = computed(() => {
         const categoryCondition =  item.category === searchCategory.value; // Check if "category" is 'A'
         const searchAll = searchCategory.value==='all'
         // Combine the conditions using logical AND (&&)
-        return nameCondition && categoryCondition || searchAll;
+        return nameCondition && (categoryCondition || searchAll);
     });
 
 });
