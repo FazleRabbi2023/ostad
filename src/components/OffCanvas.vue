@@ -25,7 +25,7 @@ defineProps(['cart']);
             <h5 class="mb-0">{{cart.items.length}} items</h5>
           </div>
           <div class="card-body">
-            <div class="row">
+            <div class="row d-flex justify-content-center">
                 <div class="col-md-5 text-center">Item</div>
                 <div class="col-md-3 text-center">Quantity</div>
                 <div class="col-md-4 text-end">Price</div>
@@ -60,30 +60,30 @@ defineProps(['cart']);
                 <!-- Data -->
               </div>
 
-              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 justify-content-center p-0">
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 p-0">
                 <!-- Quantity -->
-                <div class="d-flex mb-4" style="max-width: 300px">
-                  <button class="btn btn-primary btn-sm px-3 me-2"
+                <div class="d-flex justify-content-center mb-4  me-5" style="max-width: 300px">
+                  <!-- <button class="btn btn-primary btn-sm px-3 me-2"
                     onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                     <i class="fas fa-minus"></i>
-                  </button>
+                  </button> -->
 
                   <div class="form-outline">
                     <input id="form1" min="0" name="quantity" v-model="item.quantity" type="number" class="form-control" style="width:60px"/>
                     <!-- <label class="form-label" for="form1">Quantity</label> -->
                   </div>
 
-                  <button class="btn btn-primary btn-sm px-3 me-2"
+                  <!-- <button class="btn btn-primary btn-sm px-3 me-2"
                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                     <i class="fas fa-plus"></i>
-                  </button>
+                  </button> -->
                 </div>
                 <!-- Quantity -->
                 
                 
                 <!-- Price -->
               </div>
-              <div class="col-lg-2 col-md-3 m-0 mb-lg-0 ms-3 p-0">
+              <div class="col-lg-2 col-md-3 m-0 mb-lg-0 ms-4 p-0">
                     <p class="text-md-end">
                     <strong>${{item.unitPrice*item.quantity}}</strong>
                     </p>

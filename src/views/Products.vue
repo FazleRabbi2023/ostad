@@ -8,7 +8,7 @@ import axios from 'axios'
 const isSpin = ref(true);
 
 let products = ref([]);
-const newProducts = ref({});
+
 let categories = reactive({})
 const searchCategory = ref('all');
 const search = ref('');
@@ -47,15 +47,13 @@ const filterProducts = computed(() => {
         return nameCondition && categoryCondition || searchAll;
     });
 
-    //return products.value.filter(product => product.title.toLowerCase().includes(x.value.toLowerCase()));
 });
 
 console.log(filterProducts.value)
 
 watch(search, (newVal, oldVal) => {
     console.log(newVal);
-    //filterProducts(newVal);
-    //console.log(products.value);
+
 });
 
 
