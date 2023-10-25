@@ -2,6 +2,7 @@
 import { ref, reactive, onBeforeMount } from 'vue'
 
 import { defineProps } from 'vue';
+import { wishlist } from '@/stores/Wishlist';
 
 defineProps(['cart']);
 
@@ -53,7 +54,7 @@ defineProps(['cart']);
                   title="Remove item">
                   <i class="fas fa-trash"></i>
                 </button>
-                <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
+                <button @click="wishlist.addToList(item)" type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
                   title="Move to the wish list">
                   <i class="fas fa-heart"></i>
                 </button>
