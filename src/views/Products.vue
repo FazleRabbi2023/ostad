@@ -46,6 +46,7 @@ const filterProducts = computed(() => {
         // Combine the conditions using logical AND (&&)
         return nameCondition && (categoryCondition || searchAll);
     });
+    //statements
 
 });
 
