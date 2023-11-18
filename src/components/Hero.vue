@@ -1,5 +1,5 @@
 <script setup>
-    import {hero} from '../../public/js/data'
+    import { hero } from '../data/data'
 </script>
 
 <template>

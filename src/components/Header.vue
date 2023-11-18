@@ -1,5 +1,5 @@
 <script setup>
-import {logo,menus} from '../../public/js/data'
+import {logo,menus} from '../data/data'
 </script>
 
 <template>

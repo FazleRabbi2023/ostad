@@ -154,8 +154,8 @@ const hero = {
 
 const logo = {
     a: {
-        href: 'http://www.example.com',
-        appName: 'AppLand'
+        href: '/',
+        appName: 'LandingPage'
     },
     img: {
         src: 'imageurl.com',
@@ -164,12 +164,12 @@ const logo = {
 }
 
 const menus = [
-    { name:'Home',link:'#hero', status:'active'},
-    { name:'App Featurees',link:'#features'},
-    { name:'Gallery',link:'#gallery'},
-    { name:'Pricing',link:'#pricing'},
-    { name:'F.A.Q',link:'#faq'},
-    { name:'Contact',link:'#contact'},
+    { name:'Home',link:'#hero', active:true},
+    { name:'App Featurees',link:'#features', active:false},
+    { name:'Gallery',link:'#gallery',active:false},
+    { name:'Pricing',link:'#pricing', active:false},
+    { name:'F.A.Q',link:'#faq', active:false},
+    { name:'Contact',link:'#contact', active:false},
 ]
 
 export {hero,logo, menus, faqs, features, details, pricing_plans, contact}
