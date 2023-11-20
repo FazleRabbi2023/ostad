@@ -168,7 +168,7 @@ const menus = [
     { name:'App Featurees',link:'#features', active:false},
     { name:'Gallery',link:'#gallery',active:false},
     { name:'Pricing',link:'#pricing', active:false},
-    { name:'F.A.Q',link:'#faq', active:false},
+    { name:'FAQ',link:'#faq', active:false},
     { name:'Contact',link:'#contact', active:false},
 ]
 
